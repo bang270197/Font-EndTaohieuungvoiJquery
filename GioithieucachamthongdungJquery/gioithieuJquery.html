@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <!--css-->
+    <link rel="stylesheet" href="css/css.css" type="text/css">
+    <!--Jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('li').find('.test').css('background-color', 'blue');
+        })
+        $(document).ready(function () {
+            $('button.hide').click(function () {
+                $('.test03').hide(2000);
+                $('.test02').hide('slow');
+                $('.test01').hide();
+            });
+        })
+
+        $(document).ready(function () {
+            $('button.clicktoggle').click(function () {
+                $('.toggle').toggle(1000, function () {
+                    $(this).css('background-color', 'red');
+                });
+            })
+        });
+        $(document).ready(function () {
+            $('button.clickshow').click(function () {
+                $('.show').show(1000);
+            })
+        });
+
+        $(document).ready(function () {
+            $('button.clickanimate').click(function () {
+                $('img').animate({
+                    opacity: 0.25,
+                    left: '+=150',
+                    height: 'toggle'
+                }, 2000, function () {
+                    $('button').text("Click tiếp để thấy hiệu ứng");
+                });
+            })
+        });
+    </script>
+</head>
+<body>
+<h1>Demo các hàm thông dụng trong Jquery</h1>
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="find-tab" data-toggle="tab" href="#find" role="tab" aria-controls="home"
+           aria-selected="true">Hàm find()</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="hide-tab" data-toggle="tab" href="#hide" role="tab" aria-controls="profile"
+           aria-selected="false">Hàm hide()</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="toggle-tab" data-toggle="tab" href="#toggle" role="tab" aria-controls="messages"
+           aria-selected="false">Hàm toggle()</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="show-tab" data-toggle="tab" href="#show" role="tab" aria-controls="settings"
+           aria-selected="false">Hàm show()</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="animate-tab" data-toggle="tab" href="#animate" role="tab" aria-controls="settings"
+           aria-selected="false">Hàm animate()</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="fadeIn-tab" data-toggle="tab" href="#fadeIn" role="tab" aria-controls="settings"
+           aria-selected="false">Hàm fadeIn()</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="" data-toggle="tab" href="#fadeIn" role="tab" aria-controls="settings"
+           aria-selected="false">Hàm fadeIn()</a>
+    </li>
+
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <div class="tab-pane active" id="find" role="tabpanel" aria-labelledby="find-tab">
+        <h6><p>Ý nghĩa hàm find:Giúp tìm thành phân trong thành phần cha.</p>
+            Demo:
+            <p class="code">
+            <pre class="prettyprint">
+        <xmp>
+            <script>
+                $(document).ready(function () {
+                    $('li').find('.test').css('background-color', 'blue');
+                })
+            </script>
+               <ul>
+            <li class="first">Thành phần thứ 1</li>
+            <li class="second">Thành phần thứ 2</li>
+            <li class="third">
+                <ul>
+                    <li>Thành phần con thứ 1</li>
+                    <li class="test">Thành phần con thứ 2</li>
+                    <li>Thành phần con thứ 3</li>
+                </ul>
+            </li>
+            <li class="fourth">Thành phần thứ 4</li>
+            <li class="fifth">Thành phần thứ 5</li>
+        </ul>
+        </xmp>
+            </pre>
+
+            <p>Ý nghĩa:Tìm trong thẻ li có class nào là test thì css</p>
+        </h6>
+
+        <ul>
+            <li class="first">Thành phần thứ 1</li>
+            <li class="second">Thành phần thứ 2</li>
+            <li class="third">
+                <ul>
+                    <li>Thành phần con thứ 1</li>
+                    <li class="test">Thành phần con thứ 2</li>
+                    <li>Thành phần con thứ 3</li>
+                </ul>
+            </li>
+            <li class="fourth">Thành phần thứ 4</li>
+            <li class="fifth">Thành phần thứ 5</li>
+        </ul>
+    </div>
+    <!--  find()  -->
+    <div class="tab-pane" id="hide" role="tabpanel" aria-labelledby="hide-tab">
+        <h6><p>Ý nghĩa hàm hide:Làm ẩn các thành phần</p>
+            Demo:
+            <pre class="prettyprint">
+        <xmp>
+            <script>
+                $(document).ready(function () {
+                    $('button.hide').click(function () {
+                        $('.test03').hide(2000);
+                        $('.test02').hide('slow');
+                        $('.test01').hide();
+                    });
+                })
+            </script>
+             <p>
+            <button class="hide">Click</button>
+        </p>
+        <div class="test03">hide(2000)</div>
+        <div class="test02">hide('slow')</div>
+        <div class="test01">hide()</div>
+        </xmp>
+            </pre>
+            <p>Ý nghĩa:Ẩn các class</p>
+        </h6>
+        <p>
+            <button class="hide">Click</button>
+        </p>
+        <div class="test03">hide(2000)</div>
+        <div class="test02">hide('slow')</div>
+        <div class="test01">hide()</div>
+    </div>
+    <!--  Hide  -->
+    <div class="tab-pane" id="toggle" role="tabpanel" aria-labelledby="toggle-tab">asddas...
+        <h6><p>Ý nghĩa hàm hide:Ẩn và hiện các thành phần</p>
+            Demo:
+            <p class="code">
+            <pre class="prettyprint">
+        <xmp>
+            <script>
+                  $(document).ready(function () {
+                      $('button.clicktoggle').click(function () {
+                          $('.toggle').toggle(1000, function () {
+                              $(this).css('background-color', 'red');
+                          });
+                      })
+                  });
+            </script>
+            <button class="clicktoggle">Click</button>
+        <div class="toggle">toggle</div>
+        </xmp>
+            </pre>
+            </p>
+            <p>Ý nghĩa:Ẩn và hiện các class</p>
+        </h6>
+        <button class="clicktoggle">Click</button>
+        <div class="toggle">toggle</div>
+    </div>
+    <!--  toggle  -->
+    <div class="tab-pane" id="show" role="tabpanel" aria-labelledby="show-tab">
+        <h6><p>Ý nghĩa hàm hide:Hiện các thành phần</p>
+            Demo:
+            <p class="code">
+            <pre class="prettyprint">
+              <xmp>
+                  <script>
+                       $(document).ready(function () {
+                           $('button.clickshow').click(function () {
+                               $('.show').show(1000);
+                           })
+                       });
+                  </script>
+                  <button class="clickshow">Click</button>
+        <div class="show">Show()</div>
+              </xmp>
+            </pre>
+
+            </p>
+            <p>Ý nghĩa:Hiện các thành phần</p>
+        </h6>
+        <button class="clickshow">Click</button>
+        <div class="show">Show()</div>
+    </div>
+    <!--  show  -->
+    <div class="tab-pane" id="animate" role="tabpanel" aria-labelledby="animate-tab">
+        <h6><p>Ý nghĩa hàm hide:Thực hiện một hình ảnh động (animate) tùy chỉnh của một tập hợp các thuộc tính css.</p>
+            Demo:
+            <p class="code">
+            <pre class="prettyprint">
+        <xmp>
+            <script>
+                $(document).ready(function () {
+                    $('button.clickanimate').click(function () {
+                        $('img').animate({
+                            opacity: 0.25,
+                            left: '+=150',
+                            height: 'toggle'
+                        }, 2000, function () {
+                            $('button').text("Click tiếp để thấy hiệu ứng");
+                        });
+                    })
+                });
+            </script>
+             <button class="clickanimate">Click</button>
+        <img src="img/tải%20xuống%20(4).jpg">
+        </xmp>
+            </pre>
+            </p>
+            <p>Ý nghĩa:Thực hiện một hình ảnh động</p>
+        </h6>
+        <button class="clickanimate">Click</button>
+        <img src="img/tải%20xuống%20(4).jpg">
+
+    </div>
+    <!--  animate  -->
+    <div class="tab-pane" id="fadeIn" role="tabpanel" aria-labelledby="fadeIn-tab">
+        fadeIn
+
+    </div>
+    <!--  fadeIn  -->
+    <div class="tab-pane" id="" role="tabpanel" aria-labelledby="fadeIn-tab">
+        fadeIn
+
+    </div>
+</div>
+</body>
+</html>
